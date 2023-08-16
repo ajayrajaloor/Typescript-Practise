@@ -82,3 +82,35 @@ if(hasname(myVariable)){
 
 
 (myVariable as string).toUpperCase(); //we can write unknown type like this also
+
+
+
+
+
+//type infernce ↓
+let z;
+z=10;
+z = true;
+//here we can able to change the type by not declaring the value first
+
+
+let b = 20;
+//But here we cannot able to change the type.
+
+
+
+
+
+
+//union type ↓
+let multiType : number | boolean;
+multiType = 20;
+multiType = true;
+//we cannot be assign any string to the multitype and it will cause error because it restricts the specific types
+//Also we get intellisence support in 'union' type
+//But not in 'any' type ↓
+
+let anyType : any;
+anyType = 30;
+anyType = true;
+anyType = 'Hello';

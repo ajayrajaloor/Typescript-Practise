@@ -56,3 +56,21 @@ if (hasname(myVariable)) {
 }
 //we can write functions like this in unknown type
 myVariable.toUpperCase(); //we can write unknown type like this also
+//type infernce ↓
+var z;
+z = 10;
+z = true;
+//here we can able to change the type by not declaring the value first
+var b = 20;
+//But here we cannot able to change the type.
+//union type ↓
+var multiType;
+multiType = 20;
+multiType = true;
+//we cannot be assign any string to the multitype and it will cause error because it restricts the specific types
+//Also we get intellisence support in 'union' type
+//But not in 'any' type ↓
+var anyType;
+anyType = 30;
+anyType = true;
+anyType = 'Hello';
