@@ -55,7 +55,8 @@ if (hasname(myVariable)) {
     console.log(myVariable.name);
 }
 //we can write functions like this in unknown type
-myVariable.toUpperCase(); //we can write unknown type like this also
+// (myVariable as string).toUpperCase(); 
+//we can write unknown type like this also
 //type infernce ↓
 var z;
 z = 10;
@@ -74,3 +75,44 @@ var anyType;
 anyType = 30;
 anyType = true;
 anyType = 'Hello';
+//Functions in TS
+function add(num1, num2) {
+    return num1 + num2;
+    //we can also specify the type of the return like we added the number type after the function parameters↑
+}
+add(5, 10);
+// we cant write like this => add(5,'10')  coz it is a string and the type we declared is not same or add(5) and here there is only one argument
+//Optional functional parameters ↓
+//optional parameters must be after the required parameters
+function addd(num1, num2) {
+    if (num2) {
+        return num1 + num2;
+    }
+    else {
+        return num1;
+    }
+}
+addd(5, 10);
+addd(5); //when we pass only one value the second value will treated as undefined
+//Default functional parameters ↓
+//they are mostly alike optional parameters but here with a set of value assigned instead of undefined
+function addddd(num1, num2) {
+    if (num2 === void 0) { num2 = 20; }
+    if (num2) {
+        return num1 + num2;
+    }
+    else {
+        return num1;
+    }
+}
+console.log(addddd(5, 10));
+// it will return 15 as expected
+console.log(addddd(5));
+function fullName(person) {
+    console.log("".concat(person.firstName, " ").concat(person.lastName));
+}
+var p = {
+    firstName: 'Ajay',
+    lastName: 'Raj'
+};
+fullName(p);
